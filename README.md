@@ -1,6 +1,6 @@
 # TA2 Delivery Robot 🚀
 
-This repository presents a ROS-based autonomous delivery robot that integrates YOLO for person detection and SMACH for task execution. The system enables a robot to navigate to a target location, detect a person, and perform delivery tasks autonomously.
+This repository presents a ROS-based autonomous delivery robot that integrates YOLO for person detection and SMACH for task execution.
 
 ---
 
@@ -16,10 +16,10 @@ The system is designed to:
 
 ## 🧠 System Architecture
 
-The main components include:
+Main components:
 - **Navigation**: ROS move_base and 2D Nav Goal
 - **Perception**: YOLO-based person detection
-- **Coordinate Transformation**: Convert detection to map frame
+- **Coordinate Transformation**: Camera → map frame
 - **Decision Making**: SMACH state machine
 - **Database**: YAML-based position storage
 
@@ -27,24 +27,15 @@ The main components include:
 
 ## 📂 Repository Structure
 
-
+```
 ta2_farhan/
-├── config/ # Position database (YAML)
-├── launch/ # ROS launch files
-├── maps/ # Map files for navigation
-├── scripts/ # Main Python scripts
-│ ├── sm.py
-│ ├── sm_new.py
-│ ├── smm.py
-│ ├── yolo_hybrid.py
-│ ├── coordinate_transformer.py
-│ ├── scanning_mode.py
-│ ├── db_visualizer.py
-│ ├── live_person_marker.py
-│ └── ...
+├── config/        # Position database (YAML)
+├── launch/        # ROS launch files
+├── maps/          # Map files
+├── scripts/       # Python scripts
 ├── CMakeLists.txt
-├── package.xml
-
+└── package.xml
+```
 
 ---
 
@@ -57,59 +48,95 @@ ta2_farhan/
 - Ultralytics YOLO
 
 Install dependencies:
+
 ```bash
 pip install ultralytics opencv-python
-▶️ How to Run
+```
+
+---
+
+## ▶️ How to Run
+
+```bash
 cd <your_workspace>/catkin_ws
 catkin_make
 source devel/setup.bash
 roslaunch ta2_farhan run.launch
-🔁 Reproducibility / Setup Experiment
+```
 
-Follow these steps to reproduce the system:
+---
 
-1. Create ROS Workspace
+## 🔁 Reproducibility / Setup Experiment
+
+### 1. Create Workspace
+
+```bash
 mkdir -p <your_workspace>/catkin_ws/src
 cd <your_workspace>/catkin_ws
 catkin_make
-2. Clone Repository
+```
+
+### 2. Clone Repository
+
+```bash
 cd <your_workspace>/catkin_ws/src
 git clone https://github.com/farhannnf/delivery-robot-yolo-smach.git
-3. Build Workspace
+```
+
+### 3. Build
+
+```bash
 cd <your_workspace>/catkin_ws
 catkin_make
 source devel/setup.bash
-4. Run the System
+```
+
+### 4. Run
+
+```bash
 roslaunch ta2_farhan run.launch
-5. (Optional) Run State Machine
+```
+
+### 5. Optional
+
+```bash
 rosrun ta2_farhan sm_new.py
-🔍 Features
-Real-time person detection using YOLO
-Hybrid navigation (handcrafted + scanning mode)
-Coordinate transformation from camera to map
-Modular state machine using SMACH
-Database-driven position handling
-📊 Experiment
+```
 
-The system was evaluated using:
+---
 
-Multiple delivery scenarios
-Static and dynamic person positions
+## 🔍 Features
+
+- Real-time person detection using YOLO
+- Hybrid navigation (handcrafted + scanning mode)
+- Coordinate transformation (camera → map)
+- SMACH-based modular state machine
+- Database-driven position system
+
+---
+
+## 📊 Experiment
+
+Evaluated with:
+- Multiple delivery scenarios
+- Static and dynamic person positions
 
 Metrics:
+- Navigation accuracy (x, y error)
+- Detection success rate
 
-Navigation accuracy (x, y error)
-Detection success rate
-📌 Notes
-Replace <your_workspace> with your own directory (e.g., /home/user)
-Ensure ROS environment is sourced before running
-Camera topic must be active for detection
-Map must be loaded before navigation
-📜 License
+---
 
-This project is intended for academic purposes.
+## 📌 Notes
 
-👤 Author
+- Replace `<your_workspace>` with your own path (e.g., `/home/user`)
+- Ensure ROS environment is sourced before running
+- Camera topic must be active
+- Map must be loaded before starting navigation
 
-Farhan Firmansyah
+---
+
+## 👤 Author
+
+**Farhan Firmansyah**  
 TA2 Delivery Robot Project
