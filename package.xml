@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>ta2_farhan</name>
+  <version>0.1.0</version>
+  <description>State Machine and Position Database for Delivery Robot</description>
+
+  <maintainer email="firmansyahhfarhann@gmail.com">Achmad Farhan Firmansyah</maintainer>
+  <license>MIT</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>rospy</depend>
+  <depend>std_msgs</depend>
+  <depend>geometry_msgs</depend>
+  <depend>nav_msgs</depend>
+  <depend>move_base_msgs</depend>
+  <depend>actionlib</depend>
+  <depend>smach</depend>
+  <depend>smach_ros</depend>
+
+</package>

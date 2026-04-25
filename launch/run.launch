@@ -1,0 +1,9 @@
+<launch>
+
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find ta2_farhan)/worlds/simple_world.world"/>
+  </include>
+
+  <node pkg="ta2_farhan" type="fake_perception.py" name="fake"/>
+
+</launch>

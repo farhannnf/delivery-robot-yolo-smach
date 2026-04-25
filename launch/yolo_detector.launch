@@ -1,0 +1,27 @@
+<launch>
+    <arg name="weights" default="$(env HOME)/yolov5/best.pt" />
+    
+    <arg name="confidence_threshold" default="0.60" />
+    <arg name="iou_threshold" default="0.45" />
+
+    <arg name="inference_size" default="640" />
+    <arg name="device" default="cpu" />
+    
+    <arg name="frame_skip" default="3" />
+
+    <arg name="input_image_topic" default="/camera/rgb/image_raw" />
+    <arg name="output_detection_topic" default="/yolo/detections" />
+    <arg name="output_image_topic" default="/yolo/annotated_image" />
+
+    <node pkg="ta2_farhan" name="yolo_detector_custom" type="yolo_detector.py" output="screen">
+        <param name="weights" value="$(arg weights)" />
+        <param name="confidence_threshold" value="$(arg confidence_threshold)" />
+        <param name="iou_threshold" value="$(arg iou_threshold)" />
+        <param name="inference_size" value="$(arg inference_size)" />
+        <param name="device" value="$(arg device)" />
+        <param name="frame_skip" value="$(arg frame_skip)" />
+        <param name="input_image_topic" value="$(arg input_image_topic)" />
+        <param name="output_detection_topic" value="$(arg output_detection_topic)" />
+        <param name="output_image_topic" value="$(arg output_image_topic)" />
+    </node>
+</launch>

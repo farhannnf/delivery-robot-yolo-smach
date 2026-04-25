@@ -1,0 +1,23 @@
+positions:
+- name: Origin
+  x: -4.341235992755126
+  y: -6.555992183494696
+  theta: 1.67
+- name: Farhan
+  x: -4.6764
+  y: -2.1959
+  theta: 3.1171
+  person_x: -5.9259
+  person_y: -2.1504
+- name: Arie
+  x: -11.3458
+  y: 4.4783
+  theta: 3.1613
+  person_x: -12.7175
+  person_y: 4.4988
+- name: Aldevan
+  x: -7.3827
+  y: 1.4305
+  theta: 4.6432
+  person_x: -7.433
+  person_y: 0.4326
