@@ -1,29 +1,5 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""
-State Machine - Final Merged + FIND_ALTERNATE + Dual Error
-==========================================================
-Tugas Akhir 2 - Farhan Firmansyah (1102220025)
-Pembimbing: Pak Yani (Pembimbing I), Bu Eka (Pembimbing II)
-
-ALUR STATE MACHINE:
-  Delivery Normal:
-    IDLE -> NAVIGATING -> DELIVERING -> COMPLETE -> RETURN_HOME
-
-  Delivery Alternate (penerima tidak ditemukan):
-    IDLE -> NAVIGATING -> DELIVERING (timeout 25s)
-    -> FIND_ALTERNATE (cari nearest, navigasi, titipkan)
-    -> COMPLETE -> RETURN_HOME
-
-TIMING:
-  Navigation timeout : 25 menit (1500 detik)
-  YOLO scan timeout  : 25 detik
-  Jeda setelah delivery/titip : 25 detik (waktu ambil barang)
-
-ERROR POSISI (Arahan Pak Yani 21 April 2026):
-  Error vs Goal   : jarak robot aktual vs goal dari database (x, y)
-  Error vs Person : jarak robot aktual vs posisi person (person_x, person_y)
-"""
 
 import rospy
 import smach
