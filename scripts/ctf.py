@@ -1,27 +1,25 @@
 #!/usr/bin/env python3
 """
-Coordinate Transformer - REVISI (Depth Image Version)
-Sesuai Proposal Farhan - Persamaan 2.6, 2.7, 2.8, 2.9, 2.10
-dan Transformasi TF (Persamaan 2.11, 2.12, 2.13)
+Coordinate Transformer - REVISED (Depth Image Version)
 
-PERUBAHAN DARI VERSI LAMA:
-- Versi lama: subscribe ke PointCloud2 (~9.8 MB per frame)
-  → Terlalu besar untuk dikirim via WiFi hotspot
-  → Menyebabkan "No point cloud available"
+CHANGES FROM THE PREVIOUS VERSION:
+- Previous version: subscribed to PointCloud2 (~9.8 MB per frame)
+  → Too large to transmit over WiFi hotspot
+  → Caused "No point cloud available" issues
   
-- Versi baru: subscribe ke depth IMAGE (~600 KB per frame)  
-  → 16x lebih kecil, bisa lewat WiFi hotspot
-  → Menghitung 3D coordinates secara manual menggunakan
-    rumus pinhole projection (Persamaan 2.6, 2.7, 2.8)
-  → Hasilnya IDENTIK karena nodelet point cloud pun
-    menggunakan rumus yang sama secara internal
+- Revised version: subscribes to depth IMAGE (~600 KB per frame)
+  → 16x smaller, suitable for WiFi hotspot transmission
+  → Computes 3D coordinates manually using
+    the pinhole projection equations
+  → Produces IDENTICAL results because the point cloud nodelet
+    internally uses the same equations
 
-ALUR TETAP SAMA:
+WORKFLOW REMAINS THE SAME:
   PIXEL (u,v) → 3D CAMERA (X,Y,Z) → MAP (X,Y,Z)
 
-OUTPUT TOPIC TETAP SAMA:
+OUTPUT TOPIC REMAINS THE SAME:
   /detected_positions (geometry_msgs/PointStamped)
-  → Tidak perlu mengubah node lain yang subscribe ke topic ini
+  → No need to modify other nodes subscribing to this topic
 """
 
 import rospy
